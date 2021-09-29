@@ -131,7 +131,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">4</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">5</span></a>
 
   </li>
   </ul>
@@ -157,6 +157,136 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yucheng816917.cn/2021/09/29/js%E4%B8%AD%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yuyuze">
+      <meta itemprop="description" content="博客记录学习进度">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="青柠の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/29/js%E4%B8%AD%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E5%8C%96/" class="post-title-link" itemprop="url">js中隐式类型转化</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-09-29 22:00:13" itemprop="dateCreated datePublished" datetime="2021-09-29T22:00:13+08:00">2021-09-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-09-30 00:39:32" itemprop="dateModified" datetime="2021-09-30T00:39:32+08:00">2021-09-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/javascript/" itemprop="url" rel="index"><span itemprop="name">javascript</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/javascript/javascript%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">javascript基础</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="隐式类型转换"><a href="#隐式类型转换" class="headerlink" title="隐式类型转换"></a>隐式类型转换</h4><h5 id="字符串和数字之间的类型转化"><a href="#字符串和数字之间的类型转化" class="headerlink" title="字符串和数字之间的类型转化"></a>字符串和数字之间的类型转化</h5><p>​    +字符既能用于数字加法,又能用于字符串拼接。当一个操作数是字符串的时候用拼接，当两个操作都是数字的时候用加法。</p>
+<p>​    如果是两个数组相加的话 [1，2，3] + [3 , 4, 5]  = “1,2,3,3,4,5”因为一个操作数是对象的时候会执行toPrimitive的抽象操作先看valueOf的返回值能不能得到简单类型，对象不能得到简单类型，再看toString（），[1,2,3]转化为“1，2，3”，再做字符串拼接。</p>
+<p>​    -是数字减法运算符。类型会强制转化为数字，* 和 / 两个运算符适用于数字。为了执行减法运算，a和b都需要被转化为数字，他们首先被转化为字符串然后再转化为为数字。</p>
+<h5 id="字符串和数字之间的类型转化-1"><a href="#字符串和数字之间的类型转化-1" class="headerlink" title="字符串和数字之间的类型转化"></a>字符串和数字之间的类型转化</h5><p>​    0 + false的时候false会隐式强制类型转化为数字。</p>
+<h5 id="隐式强制类型转化为布尔值"><a href="#隐式强制类型转化为布尔值" class="headerlink" title="隐式强制类型转化为布尔值"></a>隐式强制类型转化为布尔值</h5><ol>
+<li>if（）语句中的条件判断语句</li>
+<li>for循环中的条件判断表达式</li>
+<li>while（）和do…while()循环中的条件判断表达式</li>
+<li>？：；中的条件表达式</li>
+<li>逻辑运算符｜｜（逻辑或）和&amp;&amp;（逻辑和） <strong>左边的操作数</strong></li>
+</ol>
+<blockquote>
+<p>说明｜｜ 和 &amp;&amp;</p>
+</blockquote>
+<p>他返回的并不是布尔值，而是其中的一个操作数。</p>
+<ol>
+<li>｜｜如果第一个操作数toBoolean返回的是true则返回第一个操作数，如果为false就返回第二个操作数。</li>
+<li>&amp;&amp;如果第一个操作数是false就返回第一个操作数，如果为true则返回第二个操作数</li>
+</ol>
+<h5 id="符号的强制类型转化"><a href="#符号的强制类型转化" class="headerlink" title="符号的强制类型转化"></a>符号的强制类型转化</h5><p>ES6允许从符号到字符串的显示强制类型转化，而隐式类型转化会产生错误。符号不能够被强制转化为数字，但可以被强制转化为布尔值。</p>
+<h5 id="宽松相等和严格相等"><a href="#宽松相等和严格相等" class="headerlink" title="宽松相等和严格相等"></a>宽松相等和严格相等</h5><ul>
+<li><p>字符串和数字之间的相等比较</p>
+<p>无论那一端，如果是字符串会强制转化为数字。</p>
+</li>
+<li><p>其他类型和布尔类型之间的相等比较 <strong>tip：布尔值转化为数字进行比较</strong></p>
+<p>（1）如果type（x）是布尔类型，则返回toNumber（x） == y</p>
+<p>（2） 如果type（y）是布尔类型，则返回x == toNumber（y）</p>
+</li>
+<li><p>null和undefined之间的相等比较</p>
+<p>null == undefined //true</p>
+</li>
+<li><p>对象和非对象之间的相等比较</p>
+<p>如果是字符串和数字跟对象进行比较，x为对象，toprimitive（x） == y</p>
+</li>
+<li><p>特殊情况</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//以下情况都为true</span></span><br><span class="line"><span class="literal">false</span>  <span class="number">0</span> <span class="string">&quot;0&quot;</span> <span class="string">&quot;&quot;</span> []</span><br><span class="line"><span class="literal">false</span> == <span class="number">0</span></span><br><span class="line"><span class="literal">false</span> == <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="literal">false</span> == <span class="string">&quot;0&quot;</span></span><br><span class="line"><span class="literal">false</span> == []</span><br><span class="line"><span class="number">0</span> == <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="number">0</span> == []</span><br><span class="line"><span class="string">&quot;&quot;</span> == []</span><br></pre></td></tr></table></figure></li>
+<li><p>安全运用隐式强制类型转化</p>
+<ul>
+<li>如果两边有true或者false的时候尽量不要用==</li>
+<li>如果有[],””,0 尽量不要用==</li>
+</ul>
+</li>
+<li><p>抽象的比较</p>
+<p>比较的双方首先会调用toPrimitive，如果出现非字符串，<strong>就根据toNumber规则将双方强制转化为数字进行比较</strong></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+   <div>
+     
+   </div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -666,7 +796,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
