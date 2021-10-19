@@ -20,21 +20,20 @@
     var CONFIG = {"hostname":"yucheng816917.cn","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="隐式类型转换字符串和数字之间的类型转化​    +字符既能用于数字加法,又能用于字符串拼接。当一个操作数是字符串的时候用拼接，当两个操作都是数字的时候用加法。 ​    如果是两个数组相加的话 [1，2，3] + [3 , 4, 5]  &#x3D; “1,2,3,3,4,5”因为一个操作数是对象的时候会执行toPrimitive的抽象操作先看valueOf的返回值能不能得到简单类型，对象不能得到简单类型，">
+  <meta name="description" content="小知识：javascript的几乎所有的I&#x2F;O基元都是非阻塞的。了解事件循环之前我们要先了解调用堆栈。  调用堆栈 调用堆栈是一个LIFO（后进先出）。 事件循环不断检查调用堆栈，以查看有没有需要运行的函数。 执行时会找到所有的添加到堆栈的函数，并且按照顺序执行每个函数。  ps: 1234567891011const bar &#x3D; () &#x3D;&gt; console.log(&amp;#x27;bar&amp;#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js中隐式类型转化">
-<meta property="og:url" content="http://yucheng816917.cn/2021/09/29/js%E4%B8%AD%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E5%8C%96/index.html">
+<meta property="og:title" content="nodejs的事件循环">
+<meta property="og:url" content="http://yucheng816917.cn/2021/10/19/nodejs%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/index.html">
 <meta property="og:site_name" content="青柠の博客">
-<meta property="og:description" content="隐式类型转换字符串和数字之间的类型转化​    +字符既能用于数字加法,又能用于字符串拼接。当一个操作数是字符串的时候用拼接，当两个操作都是数字的时候用加法。 ​    如果是两个数组相加的话 [1，2，3] + [3 , 4, 5]  &#x3D; “1,2,3,3,4,5”因为一个操作数是对象的时候会执行toPrimitive的抽象操作先看valueOf的返回值能不能得到简单类型，对象不能得到简单类型，">
+<meta property="og:description" content="小知识：javascript的几乎所有的I&#x2F;O基元都是非阻塞的。了解事件循环之前我们要先了解调用堆栈。  调用堆栈 调用堆栈是一个LIFO（后进先出）。 事件循环不断检查调用堆栈，以查看有没有需要运行的函数。 执行时会找到所有的添加到堆栈的函数，并且按照顺序执行每个函数。  ps: 1234567891011const bar &#x3D; () &#x3D;&gt; console.log(&amp;#x27;bar&amp;#">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-09-29T14:00:13.000Z">
-<meta property="article:modified_time" content="2021-09-29T16:47:47.022Z">
+<meta property="article:published_time" content="2021-10-19T06:29:51.000Z">
+<meta property="article:modified_time" content="2021-10-19T07:03:55.119Z">
 <meta property="article:author" content="yuyuze">
-<meta property="article:tag" content="javascript">
-<meta property="article:tag" content="类型转换">
+<meta property="article:tag" content="nodejs">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yucheng816917.cn/2021/09/29/js%E4%B8%AD%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E5%8C%96/">
+<link rel="canonical" href="http://yucheng816917.cn/2021/10/19/nodejs%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/">
 
 
 <script id="page-configurations">
@@ -47,7 +46,7 @@
   };
 </script>
 
-  <title>js中隐式类型转化 | 青柠の博客</title>
+  <title>nodejs的事件循环 | 青柠の博客</title>
   
 
 
@@ -166,7 +165,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yucheng816917.cn/2021/09/29/js%E4%B8%AD%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E5%8C%96/">
+    <link itemprop="mainEntityOfPage" href="http://yucheng816917.cn/2021/10/19/nodejs%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -179,7 +178,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          js中隐式类型转化
+          nodejs的事件循环
         </h1>
 
         <div class="post-meta">
@@ -188,31 +187,21 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-09-29 22:00:13" itemprop="dateCreated datePublished" datetime="2021-09-29T22:00:13+08:00">2021-09-29</time>
+              <time title="创建时间：2021-10-19 14:29:51 / 修改时间：15:03:55" itemprop="dateCreated datePublished" datetime="2021-10-19T14:29:51+08:00">2021-10-19</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-30 00:47:47" itemprop="dateModified" datetime="2021-09-30T00:47:47+08:00">2021-09-30</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                  <a href="/categories/nodejs/" itemprop="url" rel="index"><span itemprop="name">nodejs</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/javascript/" itemprop="url" rel="index"><span itemprop="name">javascript</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/javascript/javascript%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">javascript基础</span></a>
+                  <a href="/categories/nodejs/%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">基础</span></a>
                 </span>
             </span>
 
@@ -227,53 +216,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="隐式类型转换"><a href="#隐式类型转换" class="headerlink" title="隐式类型转换"></a>隐式类型转换</h4><h5 id="字符串和数字之间的类型转化"><a href="#字符串和数字之间的类型转化" class="headerlink" title="字符串和数字之间的类型转化"></a>字符串和数字之间的类型转化</h5><p>​    +字符既能用于数字加法,又能用于字符串拼接。当一个操作数是字符串的时候用拼接，当两个操作都是数字的时候用加法。</p>
-<p>​    如果是两个数组相加的话 [1，2，3] + [3 , 4, 5]  = “1,2,3,3,4,5”因为一个操作数是对象的时候会执行toPrimitive的抽象操作先看valueOf的返回值能不能得到简单类型，对象不能得到简单类型，再看toString（），[1,2,3]转化为“1，2，3”，再做字符串拼接。</p>
-<p>​    -是数字减法运算符。类型会强制转化为数字，* 和 / 两个运算符适用于数字。为了执行减法运算，a和b都需要被转化为数字，他们首先被转化为字符串然后再转化为为数字。</p>
-<h5 id="字符串和数字之间的类型转化-1"><a href="#字符串和数字之间的类型转化-1" class="headerlink" title="字符串和数字之间的类型转化"></a>字符串和数字之间的类型转化</h5><p>​    0 + false的时候false会隐式强制类型转化为数字。</p>
-<h5 id="隐式强制类型转化为布尔值"><a href="#隐式强制类型转化为布尔值" class="headerlink" title="隐式强制类型转化为布尔值"></a>隐式强制类型转化为布尔值</h5><ol>
-<li>if（）语句中的条件判断语句</li>
-<li>for循环中的条件判断表达式</li>
-<li>while（）和do…while()循环中的条件判断表达式</li>
-<li>？：；中的条件表达式</li>
-<li>逻辑运算符｜｜（逻辑或）和&amp;&amp;（逻辑和） <strong>左边的操作数</strong></li>
-</ol>
-<blockquote>
-<p>说明｜｜ 和 &amp;&amp;</p>
+        <blockquote>
+<p>小知识：javascript的几乎所有的I/O基元都是非阻塞的。<br>了解事件循环之前我们要先了解<a herf="#duizhan">调用堆栈</a>。</p>
 </blockquote>
-<p>他返回的并不是布尔值，而是其中的一个操作数。</p>
-<ol>
-<li>｜｜如果第一个操作数toBoolean返回的是true则返回第一个操作数，如果为false就返回第二个操作数。</li>
-<li>&amp;&amp;如果第一个操作数是false就返回第一个操作数，如果为true则返回第二个操作数</li>
-</ol>
-<h5 id="符号的强制类型转化"><a href="#符号的强制类型转化" class="headerlink" title="符号的强制类型转化"></a>符号的强制类型转化</h5><p>ES6允许从符号到字符串的显示强制类型转化，而隐式类型转化会产生错误。符号不能够被强制转化为数字，但可以被强制转化为布尔值。</p>
-<h5 id="宽松相等和严格相等"><a href="#宽松相等和严格相等" class="headerlink" title="宽松相等和严格相等"></a>宽松相等和严格相等</h5><ul>
-<li><p>字符串和数字之间的相等比较</p>
-<p>无论那一端，如果是字符串会强制转化为数字。</p>
-</li>
-<li><p>其他类型和布尔类型之间的相等比较 <strong>tip：布尔值转化为数字进行比较</strong></p>
-<p>（1）如果type（x）是布尔类型，则返回toNumber（x） == y</p>
-<p>（2） 如果type（y）是布尔类型，则返回x == toNumber（y）</p>
-</li>
-<li><p>null和undefined之间的相等比较</p>
-<p>null == undefined //true</p>
-</li>
-<li><p>对象和非对象之间的相等比较</p>
-<p>如果是字符串和数字跟对象进行比较，x为对象，toprimitive（x） == y</p>
-</li>
-<li><p>特殊情况</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//以下情况都为true</span></span><br><span class="line"><span class="literal">false</span>  <span class="number">0</span> <span class="string">&quot;0&quot;</span> <span class="string">&quot;&quot;</span> []</span><br><span class="line"><span class="literal">false</span> == <span class="number">0</span></span><br><span class="line"><span class="literal">false</span> == <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="literal">false</span> == <span class="string">&quot;0&quot;</span></span><br><span class="line"><span class="literal">false</span> == []</span><br><span class="line"><span class="number">0</span> == <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="number">0</span> == []</span><br><span class="line"><span class="string">&quot;&quot;</span> == []</span><br></pre></td></tr></table></figure></li>
-<li><p>安全运用隐式强制类型转化</p>
-<ul>
-<li>如果两边有true或者false的时候尽量不要用==</li>
-<li>如果有[],””,0 尽量不要用==</li>
-</ul>
-</li>
-<li><p>抽象的比较</p>
-<p>比较的双方首先会调用toPrimitive，如果出现非字符串，<strong>就根据toNumber规则将双方强制转化为数字进行比较</strong></p>
-</li>
-</ul>
+<h3 id="duizhan">调用堆栈</h3>
+调用堆栈是一个LIFO（后进先出）。
+事件循环不断检查调用堆栈，以查看有没有需要运行的函数。
+执行时会找到所有的添加到堆栈的函数，并且按照顺序执行每个函数。
 
+<p>ps:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> bar = <span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;bar&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> baz = <span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;baz&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> foo = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;foo&#x27;</span>)</span><br><span class="line">  bar()</span><br><span class="line">  baz()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo()</span><br></pre></td></tr></table></figure>
+<ol>
+<li>foo进入堆栈的底部</li>
+<li>执行foo的代码，console.log(‘foo’)，运行完移除console.log(‘foo’)</li>
+<li>发现bar（）放入堆栈中，执行bar（）</li>
+<li>目前堆栈中按照先后顺序是foo() bar()</li>
+<li>把console.log(‘bar’)放入堆栈，运行完移除console.log(‘bar’)</li>
+<li>以此类推直到foo的函数结束<blockquote>
+<p>每次迭代中的事件循环都会查看调用堆栈中是否有东西并执行它直到调用堆栈为空</p>
+</blockquote>
+<h3 id="入队函数执行"><a href="#入队函数执行" class="headerlink" title="入队函数执行"></a>入队函数执行</h3>大家都知道，setTimeout是一个宏任务，他是异步的。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> bar = <span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;bar&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> baz = <span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;baz&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> foo = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;foo&#x27;</span>)</span><br><span class="line">  <span class="built_in">setTimeout</span>(bar, <span class="number">0</span>)</span><br><span class="line">  baz()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo()</span><br><span class="line"><span class="comment">//顺序： foo baz bar</span></span><br></pre></td></tr></table></figure>
+按照我的理解是当foo中运行到setTimeout的时候，因为setTimeout是异步的不阻塞代码的运行，定时器时间到了把回调函数放入消息队列中，当foo的代码执行完毕后，执行bar的函数。</li>
+</ol>
+<h3 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h3><p>当调用 setTimeout() 时，浏览器或 Node.js 会启动定时器。 当定时器到期时（在此示例中会立即到期，因为将超时值设为 0），则回调函数会被放入“消息队列”中。</p>
+<p>在消息队列中，<strong>用户触发的事件（如单击或键盘事件、或获取响应）也会在此排队</strong>，然后代码才有机会对其作出反应。 类似 onLoad 这样的 DOM 事件也如此。</p>
+<p>事件循环会赋予调用堆栈优先级，它首先处理在调用堆栈中找到的所有东西，一旦其中没有任何东西，便开始<strong>处理消息队列</strong>中的东西。</p>
+<p>我们不必等待诸如 setTimeout、fetch、或其他的函数来完成它们自身的工作，因为它们是由<strong>浏览器</strong>提供的，并且位于它们自身的<strong>线程</strong>中。 例如，如果将 setTimeout 的超时设置为 2 秒，但不必等待 2 秒，等待发生在其他地方。</p>
+<h3 id="作业队列"><a href="#作业队列" class="headerlink" title="作业队列"></a>作业队列</h3><p>Promise使用了该队列（以及基于 promise 构建的 async/await）这种方式会尽快地执行异步函数的结果，而不是放在调用堆栈的末尾。<br>在当前函数结束之前 resolve 的 Promise 会在当前函数之后被立即执行。</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">const bar = <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;bar&#x27;</span>)</span><br><span class="line"></span><br><span class="line">const baz = <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;baz&#x27;</span>)</span><br><span class="line"></span><br><span class="line">const foo = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;foo&#x27;</span>)</span><br><span class="line">  <span class="built_in">setTimeout</span>(bar, <span class="number">0</span>)</span><br><span class="line">  <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">(resolve, reject)</span> =&gt;</span></span><br><span class="line">    resolve(<span class="string">&#x27;应该在 baz 之后、bar 之前&#x27;</span>)</span><br><span class="line">  ).<span class="keyword">then</span>(resolve =&gt; <span class="built_in">console</span>.log(resolve))</span><br><span class="line">  baz()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo()</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -318,7 +288,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yucheng816917.cn/2021/09/29/js%E4%B8%AD%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E5%8C%96/" title="js中隐式类型转化">http://yucheng816917.cn/2021/09/29/js中隐式类型转化/</a>
+    <a href="http://yucheng816917.cn/2021/10/19/nodejs%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" title="nodejs的事件循环">http://yucheng816917.cn/2021/10/19/nodejs的事件循环/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -329,8 +299,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/javascript/" rel="tag"># javascript</a>
-              <a href="/tags/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" rel="tag"># 类型转换</a>
+              <a href="/tags/nodejs/" rel="tag"># nodejs</a>
           </div>
 
         
@@ -339,13 +308,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/09/26/%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" rel="prev" title="网络体系结构">
-      <i class="fa fa-chevron-left"></i> 网络体系结构
+    <a href="/2021/10/09/%E8%B4%9D%E5%A1%9E%E5%B0%94%E6%9B%B2%E7%BA%BF/" rel="prev" title="贝塞尔曲线">
+      <i class="fa fa-chevron-left"></i> 贝塞尔曲线
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/10/01/%E8%A7%82%E5%AF%9F%E8%80%85%E5%92%8C%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E7%9A%84%E5%85%B3%E7%B3%BB/" rel="next" title="观察者和发布订阅的关系">
-      观察者和发布订阅的关系 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -404,7 +370,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-number">1.</span> <span class="nav-text">隐式类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%95%B0%E5%AD%97%E4%B9%8B%E9%97%B4%E7%9A%84%E7%B1%BB%E5%9E%8B%E8%BD%AC%E5%8C%96"><span class="nav-number">1.1.</span> <span class="nav-text">字符串和数字之间的类型转化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%95%B0%E5%AD%97%E4%B9%8B%E9%97%B4%E7%9A%84%E7%B1%BB%E5%9E%8B%E8%BD%AC%E5%8C%96-1"><span class="nav-number">1.2.</span> <span class="nav-text">字符串和数字之间的类型转化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%9A%90%E5%BC%8F%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E5%8C%96%E4%B8%BA%E5%B8%83%E5%B0%94%E5%80%BC"><span class="nav-number">1.3.</span> <span class="nav-text">隐式强制类型转化为布尔值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%A6%E5%8F%B7%E7%9A%84%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E5%8C%96"><span class="nav-number">1.4.</span> <span class="nav-text">符号的强制类型转化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%BD%E6%9D%BE%E7%9B%B8%E7%AD%89%E5%92%8C%E4%B8%A5%E6%A0%BC%E7%9B%B8%E7%AD%89"><span class="nav-number">1.5.</span> <span class="nav-text">宽松相等和严格相等</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#duizhan"><span class="nav-number">1.</span> <span class="nav-text">调用堆栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A5%E9%98%9F%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C"><span class="nav-number">2.</span> <span class="nav-text">入队函数执行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97"><span class="nav-number">3.</span> <span class="nav-text">消息队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E4%B8%9A%E9%98%9F%E5%88%97"><span class="nav-number">4.</span> <span class="nav-text">作业队列</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
